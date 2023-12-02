@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.mai.lessons.rpks.ServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-06-16T16:55:58" hostname="MAGICBOOK" time="39.538">
+  <properties/>
+  <testcase name="testServiceFilteringEquals()" classname="ru.mai.lessons.rpks.ServiceTest" time="39.538"/>
+  <system-out><![CDATA[19:55:57,448 |-INFO in ch.qos.logback.classic.LoggerContext[default] - This is logback-classic version 1.4.5
+19:55:57,501 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Could NOT find resource [logback-test.xml]
+19:55:57,509 |-INFO in ch.qos.logback.classic.LoggerContext[default] - Found resource [logback.xml] at [file:/P:/Projects/JetBrains/IntelliJIDEA/RPKS_2/git_Clone/JavaServiceFiltering/build/resources/test/logback.xml]
+19:55:57,786 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - Processing appender named [CONSOLE]
+19:55:57,786 |-INFO in ch.qos.logback.core.model.processor.AppenderModelHandler - About to instantiate appender of type [ch.qos.logback.core.ConsoleAppender]
+19:55:57,874 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - This appender no longer admits a layout as a sub-component, set an encoder instead.
+19:55:57,874 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - To ensure compatibility, wrapping your layout in LayoutWrappingEncoder.
+19:55:57,874 |-WARN in ch.qos.logback.core.ConsoleAppender[CONSOLE] - See also http://logback.qos.ch/codes.html#layoutInsteadOfEncoder for details
+19:55:57,876 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting level of logger [ru.mai.lessons.rpks] to INFO
+19:55:57,883 |-INFO in ch.qos.logback.classic.model.processor.LoggerModelHandler - Setting additivity of logger [ru.mai.lessons.rpks] to false
+19:55:57,884 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[ru.mai.lessons.rpks]
+19:55:57,886 |-INFO in ch.qos.logback.classic.model.processor.RootLoggerModelHandler - Setting level of ROOT logger to ERROR
+19:55:57,886 |-INFO in ch.qos.logback.core.model.processor.AppenderRefModelHandler - Attaching appender named [CONSOLE] to Logger[ROOT]
+19:55:57,886 |-INFO in ch.qos.logback.core.model.processor.DefaultProcessor@44e3a2b2 - End of configuration.
+19:55:57,887 |-INFO in ch.qos.logback.classic.joran.JoranConfigurator@101639ae - Registering current configuration as safe fallback point
+
+19:56:30.024 [Test worker] INFO  ru.mai.lessons.rpks.ServiceTest - Topics: [(name=test_topic_in, numPartitions=3, replicationFactor=1, replicasAssignments=null, configs=null), (name=test_topic_out, numPartitions=3, replicationFactor=1, replicasAssignments=null, configs=null)], replica factor 1, partitions 3
+19:56:31.120 [Test worker] INFO  ru.mai.lessons.rpks.ServiceTest - Topic not exist. Create topics [(name=test_topic_in, numPartitions=3, replicationFactor=1, replicasAssignments=null, configs=null), (name=test_topic_out, numPartitions=3, replicationFactor=1, replicasAssignments=null, configs=null)]
+19:56:33.627 [Test worker] INFO  ru.mai.lessons.rpks.ServiceTest - Create filtering rule 1
+19:56:33.679 [Test worker] INFO  ru.mai.lessons.rpks.ServiceTest - Check rule from DB
+19:56:34.412 [pool-1-thread-2] INFO  ru.mai.lessons.rpks.ServiceTest - Remaining attempts 10
+19:56:34.728 [pool-2-thread-1] INFO  r.m.l.rpks.impl.ProcessorOfRule - jsonValueOfname: no_alex
+19:56:34.728 [pool-2-thread-1] INFO  r.m.l.rpks.impl.ProcessorOfRule - jsonValueOfname: 
+19:56:34.729 [pool-2-thread-1] WARN  r.m.lessons.rpks.impl.WriterToKafka - NOT_CORRECT_MASSAGE:
+19:56:34.730 [pool-2-thread-1] INFO  r.m.l.rpks.impl.ProcessorOfRule - jsonValueOfname: alex
+19:56:35.459 [pool-1-thread-2] INFO  ru.mai.lessons.rpks.ServiceTest - Read messages 1
+19:56:35.467 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:35.526 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:35.593 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:35.681 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:35.747 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:35.808 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:35.919 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:35.983 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:36.033 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:36.084 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:36.138 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:36.196 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:36.256 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:36.301 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:36.379 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:36.480 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:36.572 [pool-1-thread-1] ERROR r.m.l.rpks.impl.ServiceFiltering - CANT_SLEEP:sleep interrupted
+19:56:36.636 [pool-1-thread-1] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-19 - Exception during pool initialization.
+org.postgresql.util.PSQLException: FATAL: terminating connection due to unexpected postmaster exit
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2676)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2366)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:356)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:316)
+	at org.postgresql.core.SetupQueryRunner.run(SetupQueryRunner.java:55)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.runInitialQueries(ConnectionFactoryImpl.java:918)
+	at org.postgresql.core.v3.ConnectionFactoryImpl.openConnectionImpl(ConnectionFactoryImpl.java:327)
+	at org.postgresql.core.ConnectionFactory.openConnection(ConnectionFactory.java:54)
+	at org.postgresql.jdbc.PgConnection.<init>(PgConnection.java:253)
+	at org.postgresql.Driver.makeConnection(Driver.java:434)
+	at org.postgresql.Driver.connect(Driver.java:291)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:359)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:201)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:470)
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:561)
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:100)
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81)
+	at ru.mai.lessons.rpks.impl.ReaderFromDB.readRulesFromDB(ReaderFromDB.java:29)
+	at ru.mai.lessons.rpks.impl.ServiceFiltering.start(ServiceFiltering.java:43)
+	at ru.mai.lessons.rpks.ServiceTest.lambda$testStartService$49(ServiceTest.java:1335)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
