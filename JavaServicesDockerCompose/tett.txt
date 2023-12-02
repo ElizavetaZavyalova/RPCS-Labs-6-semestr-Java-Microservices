@@ -1,0 +1,3 @@
+        connectionString = "mongodb://localhost:6464"
+        database = "mongo_db"
+        collection = "test"

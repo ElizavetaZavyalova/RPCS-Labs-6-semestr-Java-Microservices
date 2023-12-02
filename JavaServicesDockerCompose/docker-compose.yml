@@ -1,0 +1,90 @@
+version: '3.9'
+services:
+  m:
+    build: ./m
+    container_name: management
+    depends_on:
+      - postgres
+      - kafka
+      - redis
+      - mongo
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:6363/postgres_db
+      SPRING_DATASOURCE_USER_NAME: user
+      SPRING_DATASOURCE_PASSWORD: password
+  f:
+    build: ./f
+    container_name: filter
+    depends_on:
+      - postgres
+      - kafka
+      - redis
+      - mongo
+  d:
+    build: ./d
+    container_name: deduplication
+    depends_on:
+      - postgres
+      - kafka
+      - redis
+      - mongo
+  e:
+    build: ./e
+    container_name: enrichment
+    depends_on:
+      - postgres
+      - kafka
+      - redis
+      - mongo
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_SERVER_ID: 1
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "22181:2181"
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
+      KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+  redis:
+    image: redis:latest
+    container_name: redis_db
+    ports:
+      - "6565:6565"
+
+  mongo:
+    image: mongo:latest
+    container_name: mongo_db
+    environment:
+      ALLOW_EMPTY_PASSWORT: yes
+    ports:
+      - "6464:6464"
+
+  postgres:
+    image: postgres:12
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres_db
+    ports:
+      - "6363:6363"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init_script.sql
