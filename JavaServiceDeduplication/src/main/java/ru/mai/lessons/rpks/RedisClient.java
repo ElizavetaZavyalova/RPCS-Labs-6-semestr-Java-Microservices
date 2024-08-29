@@ -1,6 +1,6 @@
 package ru.mai.lessons.rpks;
 
-public interface RedisClient {
+public interface RedisClient {//Есть
     /** Нужно реализовать этот интерфейс таким образом:
      Чтение данных по ключу, чтобы проверить есть ли уже такой ключ в Redis.
      Если есть, значит это дулю и устанавливаем deduplicationState = false.

@@ -4,6 +4,8 @@ import lombok.extern.slf4j.Slf4j;
 import ru.mai.lessons.rpks.impl.ConfigurationReader;
 import ru.mai.lessons.rpks.impl.ServiceDeduplication;
 
+import java.util.*;
+
 @Slf4j
 public class ServiceDeduplicationMain {
     public static void main(String[] args) {

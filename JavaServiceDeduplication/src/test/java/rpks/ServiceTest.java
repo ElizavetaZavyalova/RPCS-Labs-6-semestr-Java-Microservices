@@ -100,6 +100,7 @@ class ServiceTest {
         assertTrue(redis.isRunning());
     }
 
+
     /**
      * Проверяет возможность читать и писать из Kafka
      */
